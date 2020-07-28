@@ -1,20 +1,11 @@
-//? Modules
 import { Module } from '@nestjs/common';
-import { UserModule } from './user/user.module';
-import { PostModule } from './post/post.module';
-import { MongooseModule } from '@nestjs/mongoose';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
 @Module({
-  imports: [
-    UserModule,
-    PostModule,
-    MongooseModule.forRoot('mongodb://localhost/user', {
-      connectionName: 'user',
-    }),
-    MongooseModule.forRoot('mongodb://localhost/post', {
-      connectionName: 'post',
-    }),
-  ],
+  controllers:[AppController],
+  providers:[AppService]
+  
 })
 export class AppModule {}
 
-//? TODO: GraphQL
